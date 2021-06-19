@@ -84,7 +84,6 @@ export default defineComponent({
     const errorSchemaRef: Ref<ErrorSchema> = shallowRef({})
 
     watchEffect(() => {
-      console.log('watchEffect')
       validatorRef.value = new Ajv({
         ...defaultAjvOptions,
         ...props.ajvOptions,
@@ -146,7 +145,6 @@ export default defineComponent({
     watch(
       () => props.contextRef,
       () => {
-        console.log(props.contextRef)
         if (props.contextRef) {
           props.contextRef.value = {
             doValidate() {
@@ -170,7 +168,6 @@ export default defineComponent({
           ? props.customFormat
           : [props.customFormat]
         return customFormats.reduce((result, format) => {
-          console.log(format)
           // validatorRef.value.addFormat(format.name, format.definition)
           result[format.name] = format.component
           return result
@@ -201,7 +198,6 @@ export default defineComponent({
       }
     })
 
-    console.log(formatMapRef.value)
     //利用contxet和provide传入widget
     const context: any = {
       SchemaItem,
