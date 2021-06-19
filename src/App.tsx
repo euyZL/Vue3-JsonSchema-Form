@@ -9,7 +9,6 @@
 import { defineComponent, reactive, ref, Ref, watchEffect, toRaw } from 'vue'
 import { createUseStyles } from 'vue-jss'
 import MonacoEditor from './components/MonacoEditor'
-import ThemeDefault from '../lib/theme-default'
 import ThemeProvider from '../lib/theme'
 
 //测试数据
@@ -17,7 +16,7 @@ import demos from './demos'
 
 //导入组件库
 import SchemaForm from '../lib'
-import themeDefault from '../lib/theme-default'
+import ThemeDefault from '../lib/theme-default'
 import customFormat from './plugins/customFormat'
 import customKeyword from './plugins/customKeyword'
 
