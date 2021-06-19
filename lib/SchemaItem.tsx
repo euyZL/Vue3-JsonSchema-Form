@@ -1,20 +1,17 @@
 /*
  * @Author: your name
  * @Date: 2021-06-06 00:18:58
- * @LastEditTime: 2021-06-17 01:25:06
+ * @LastEditTime: 2021-06-19 19:40:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3-json-schema-form\lib\SchemaItems.tsx
  */
 import { computed, defineComponent } from 'vue'
-import { SchemaTypes, FieldPropsDefine } from './types'
-import StringField from './Fields/StringField'
-import NumberField from './Fields/NumberField'
-import ObjectField from './Fields/ObjectField'
-import ArrayField from './Fields/ArrayField'
+import { FieldPropsDefine } from './types'
 
 import { retrieveSchema } from './utils'
 import { useContext } from './context'
+import { Fields } from './index'
 
 export default defineComponent({
   name: 'SchemaItem',
@@ -35,26 +32,10 @@ export default defineComponent({
       const type = schema.type
       let Component: any
 
-      switch (type) {
-        case SchemaTypes.STRING: {
-          Component = StringField
-          break
-        }
-        case SchemaTypes.NUMBER: {
-          Component = NumberField
-          break
-        }
-        case SchemaTypes.OBJECT: {
-          Component = ObjectField
-          break
-        }
-        case SchemaTypes.ARRAY: {
-          Component = ArrayField
-          break
-        }
-        default: {
-          console.warn(`${type} is not supported`)
-        }
+      if (type && Fields[type]) {
+        Component = Fields[type]
+      } else {
+        console.warn(`${type} is not supported`)
       }
 
       return <Component {...props} schema={retrievedSchema} />
