@@ -54,10 +54,6 @@ export default defineComponent({
     uiSchema: {
       type: Object as PropType<UISchema>,
     },
-    // theme: {
-    //   type: Object as PropType<Theme>,
-    //   required: true,
-    // },
     contextRef: {
       type: Object as PropType<Ref<contextRef | undefined>>,
     },
@@ -118,7 +114,6 @@ export default defineComponent({
 
     async function doValidate() {
       const index = (validateIndex.value += 1) //记录异步执行后的变更次数
-      // console.log('start validate')
       const result = await validateFromData(
         validatorRef.value,
         props.value,
@@ -126,14 +121,11 @@ export default defineComponent({
         props.locale,
         props.customValidate,
       )
-
-      // console.log('index2=', index)
-      // console.log('validateIndex2=', validateIndex.value)
+      
       if (index !== validateIndex.value) {
         //当中间有变更，且校验函数未完成时直接返回
         return
       }
-      // console.log('end validate')
       errorSchemaRef.value = result.errorSchema
 
       validateResolveRef.value(result)
@@ -158,7 +150,6 @@ export default defineComponent({
         if (props.contextRef) {
           props.contextRef.value = {
             doValidate() {
-              console.log('------------------->')
               return new Promise((resolve) => {
                 validateResolveRef.value = resolve
                 doValidate()
@@ -216,7 +207,6 @@ export default defineComponent({
       SchemaItem,
       formatMapRef,
       transformSchemaRef,
-      // theme: props.theme,
     }
 
     provide(SchemaFormContextKey, context)
