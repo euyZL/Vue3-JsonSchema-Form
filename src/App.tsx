@@ -143,7 +143,8 @@ export default defineComponent({
     ) {
       try {
         const jsonData = JSON.parse(value)
-        demo[field] = jsonData(demo as any)[`${field}Code`] = value
+        demo[field] = jsonData
+        ;(demo as any)[`${field}Code`] = value
         console.log((demo as any)[`${field}Code`])
       } catch (err) {
         console.log(err)
