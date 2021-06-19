@@ -6,10 +6,9 @@
  * @Description: In User Settings Edit
  * @FilePath: \vue3-json-schema-form\lib\Fields\StringField.tsx
  */
-import { defineComponent } from '@vue/runtime-core'
+import { defineComponent, computed } from 'vue'
 import { FieldPropsDefine, CommonWidgetNames } from '../types'
 import { getWidget } from '../theme'
-import { computed } from 'vue'
 
 export default defineComponent({
   name: 'StringField',
