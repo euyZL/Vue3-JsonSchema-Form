@@ -16,6 +16,13 @@ import SelectionWidget from './theme-default/SelectionWidget'
 
 export default SchemaForm
 
+const Fields = {
+  ['number' as string]: NumberField,
+  ['string' as string]: StringField,
+  ['object' as string]: ObjectField,
+  ['array' as string]: ArrayField,
+}
+
 export {
   NumberField,
   StringField,
@@ -23,4 +30,5 @@ export {
   ObjectField,
   ThemeProvider,
   SelectionWidget,
+  Fields,
 }
