@@ -221,27 +221,18 @@ export default defineComponent({
                   uiSchema={toRaw(demo.uiSchema) || {}}
                   customFormat={customFormat}
                   customKeyword={customKeyword}
+                  ref={nameRef}
                 />
               </ThemeProvider>
-              {/* <ThemeProvider theme={themeDefault as any}>
-                <SchemaForm
-                  schema={demo.schema}
-                  value={demo.data}
-                  onChange={handleChange}
-                  contextRef={contextRef}
-                  ref={nameRef}
-                  customValidate={demo.customValidate}
-                  uiSchema={demo.uiSchema || {}}
-                  customFormats={customFormat}
-                  customKeywords={customKeyword}
-                />
-              </ThemeProvider> */}
+              <button onClick={validateForm}>校验</button>
             </div>
-            {/* <button onClick={validateForm}>校验</button> */}
-            <button onClick={validateForm}>校验</button>
-            {/* <button onClick={SchemaForm.doValidate}>校验</button> */}
           </div>
-          <a href="#">github</a>
+          <a
+            href="https://github.com/euyZL/Vue3-JsonSchema-Form"
+            target="_blank"
+          >
+            github
+          </a>
         </div>
       )
     }
