@@ -12,7 +12,7 @@ import StringField from './Fields/StringField'
 import ArrayField from './Fields/ArrayField'
 import ObjectField from './Fields/ObjectField'
 import ThemeProvider from './theme'
-import SelectionWidget from './widgets/Selection'
+import SelectionWidget from './theme-default/SelectionWidget'
 
 export default SchemaForm
 
