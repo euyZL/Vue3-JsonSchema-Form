@@ -46,6 +46,7 @@ demo:{
   class={classes.codePanel}
 />
 
+//整体结构
 <ThemeProvider
   theme={themeDefault}>
   <SchemaForm>
