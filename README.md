@@ -127,10 +127,6 @@ json schema 对象，用来定义数据，也是定义表单的依据
 
 从最顶层传下的表单相应的 input 事件调用函数
 
-### locale
-
-语言
-
 ### contextRef
 
 由顶层传入其它层的组件 Ref
