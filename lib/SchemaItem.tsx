@@ -6,8 +6,8 @@
  * @Description: In User Settings Edit
  * @FilePath: \vue3-json-schema-form\lib\SchemaItems.tsx
  */
-import { computed, defineComponent, PropType, shallowRef } from 'vue'
-import { Schema, SchemaTypes, FieldPropsDefine } from './types'
+import { computed, defineComponent } from 'vue'
+import { SchemaTypes, FieldPropsDefine } from './types'
 import StringField from './Fields/StringField'
 import NumberField from './Fields/NumberField'
 import ObjectField from './Fields/ObjectField'
@@ -31,10 +31,6 @@ export default defineComponent({
 
     return () => {
       const { schema } = props
-      // const retrievedSchemaRef = shallowRef(
-      //   retrieveSchema(schema, rootSchema, value),
-      // )
-
       const retrievedSchema = retrievedSchemaRef.value
       const type = schema.type
       let Component: any
