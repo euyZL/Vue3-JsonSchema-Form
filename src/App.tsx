@@ -114,7 +114,6 @@ export default defineComponent({
     watchEffect(() => {
       const index = selectedRef.value
       const d: any = demos[index] // 测试数据demos
-      console.log(demos[index])
       demo.schema = d.schema
       demo.data = d.default
       demo.uiSchema = d.uiSchema
@@ -131,8 +130,6 @@ export default defineComponent({
     const handleChange = (v: any) => {
       demo.data = v
       demo.dataCode = toJson(v)
-      // console.log(v)
-      // console.log(toJson(v))
     }
 
     //抽象handleChange函数
@@ -144,7 +141,6 @@ export default defineComponent({
         const jsonData = JSON.parse(value)
         demo[field] = jsonData
         ;(demo as any)[`${field}Code`] = value
-        console.log((demo as any)[`${field}Code`])
       } catch (err) {
         console.log(err)
       }
